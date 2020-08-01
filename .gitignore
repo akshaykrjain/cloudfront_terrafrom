@@ -1,1 +1,2 @@
-terraform.exe
+trf/.terraform/plugins/windows_386/terraform-provider-aws_v2.70.0_x4.exe
+trf/.terraform/plugins/windows_386/lock.json
