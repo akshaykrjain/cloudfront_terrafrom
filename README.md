@@ -1,8 +1,10 @@
-# cloudfront_terrafrom
-Setting up CloudFront Distribution using Terraform
+# cloudfront_terraform
+Setting up CloudFront Distribution using Terraform. 
+![infrastructure](architecture.jpg)
+
 
 # Pre-Requisite
-- npm
+- node.js 
 - aws cli
 - 
 
@@ -25,8 +27,7 @@ aws s3 cp --recursive build/ s3://xyz-gmbh-app-scripts/  --exclude "*static/*"  
 
 ## Copy Static Files to Bucket-2
 ```
-cd my-app/build
-aws s3 cp --recursive static/ s3://xyz-gmbh-static-data/static/  (TODO aws s3 sync)
+aws s3 cp --recursive ./build/static/ s3://xyz-gmbh-static-data/static/  (TODO aws s3 sync)
 ```
 
 ## Test
