@@ -12,7 +12,7 @@ variable "static-data-bkt" {
 
 variable "route53_domain" {
   type        = string
-  description = "Route53 hostedzone name"
+  description = "Your domain nome (naked) (e.g. example.com)"
   default     = "mywebsite.com"
 }
 
