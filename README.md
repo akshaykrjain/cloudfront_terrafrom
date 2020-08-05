@@ -1,8 +1,8 @@
 # Deploy A Single Page Static Application on AWS CloudFront Distribution using Terraform
 
-> A Terraform Module which will deploy an SPA on AWS CloudFormation backed by S3 Buckets
+> A Terraform Module which will deploy a SPA on AWS CloudFormation backed by S3 Buckets
 
-## High Level Architecture Diagram
+## High-Level Architecture Diagram
 
 ![infrastructure](architecture.jpg)
 
@@ -13,21 +13,21 @@
 - Versioning Enabled
 ### DNS : 
 - Bring your own domain 
-- DNS Records manageble in AWS Route53
+- DNS Records manageable in AWS Route53
 - Failover with AWS itself
 - ACM Certificates
 ### Security :
 - IP Based Access Control
 - Basic Auth using static user name and password (Utilized Powerful Lambda@Edge)
-- AWS WAF with possibilty to add advanced security rules.
+- AWS WAF the possibility to add advanced security rules.
 
 ## Prerequisite
-Make sure you have latest version of the following before deploying. (Or Your CI Platform is ready)
+Make sure you have the latest version of the following before deploying. (Or Your CI Platform is ready)
 - `node.js`( or any other standard SPA framework)
 - `aws cli`
 - `terraform`
 - `git` 
-- `Domain of Your Site` (With edit rights to DNS Records)
+- `The DNS Domain of Your Site` (With edit rights to DNS Records)
 - All `tf` files copied from this repository (`git clone https://github.com/akshaykrjain/cloudfront_terrafrom.git`)
 
 # Steps to Deploy 
@@ -46,12 +46,12 @@ _*Feel free to use [Hugo](https://gohugo.io/) framework in the similar manner*_
   4. Select Any suitable validation method (DNS or E Mail)
   5. Note down the arn of the issued certificate . (It can take few minutes to get it issued)
 
-_*Note- This step can be automated using Terraform, but AWS can take upto 30 mins to issue which will create problems for our TF module deployment*_
+_*Note- This step can be automated using Terraform, but AWS can take up to 30 mins to issue which will create problems for our TF module deployment*_
 
 ## 3. Provide Values of Variables. 
 Edit [`variables.tf`](variables.tf) and edit all the variables as per your wish
 
-Edit [`headers.js`](headers.js#8) and provide static user name and password to protect your site
+Edit [`headers.js`](headers.js#L8) and provide static user name and password to protect your site
 
 ## 4. Deploy the Infrastructure
 
@@ -74,9 +74,10 @@ aws s3 cp --recursive ./build/static/ s3://<static-data-bucket-name>/static/
 ~ Tip - `aws s3 sync` can also be used for subsequent changes in application 
 
 ## Test
-Execute following test cases to verify our deployment
-1. Open www.(domain name) (eg. www.myapp.com) from the whitelisted IP ,User name and password should be prompted and webpage should be displayed if provided correctly otherwise and error page should be displayed
+Execute the following test cases to verify our deployment
+1. Open www.(domain name) (eg. www.myapp.com) from the whitelisted IP ,User name and password should be prompted and webpage should be displayed if provided correctly otherwise an error page should be displayed
 2. repeat the same from another IP , error should be displayed
 3. S3 Bucket objects should not be accessed directly
 4. Application Updates should be replicated to edge locations within hours
-(TODO : Python Scripts or Terratest for automatic test)
+
+(TODO : Python Scripts or Terratest for the automatic test)
