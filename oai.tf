@@ -1,6 +1,6 @@
 #Acces Control for SPA Bucket
 resource "aws_cloudfront_origin_access_identity" "oai_spa" {
-     comment = "origin_access_identity for SPA "
+  comment = "origin_access_identity for SPA "
 }
 
 data "aws_iam_policy_document" "oai_spa_policy" {
@@ -21,7 +21,7 @@ resource "aws_s3_bucket_policy" "oai_spa_policy" {
 
 #Acces Control for Static Data Bucket
 resource "aws_cloudfront_origin_access_identity" "oai_static_data" {
-     comment = "origin_access_identity for Static Data Bucket "
+  comment = "origin_access_identity for Static Data Bucket "
 }
 
 data "aws_iam_policy_document" "oai_static_data_policy" {

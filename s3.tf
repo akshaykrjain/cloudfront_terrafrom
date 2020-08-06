@@ -1,7 +1,7 @@
 
 resource "aws_s3_bucket" "spa-app-bkt" {
-  bucket = var.spa-app-bkt
-  acl    = "private"  
+  bucket        = var.spa-app-bkt
+  acl           = "private"
   force_destroy = var.s3_force_destroy
   versioning {
     enabled = true
@@ -16,8 +16,8 @@ resource "aws_s3_bucket" "spa-app-bkt" {
 }
 
 resource "aws_s3_bucket" "static-data-bkt" {
-  bucket = var.static-data-bkt
-  acl    = "private"  
+  bucket        = var.static-data-bkt
+  acl           = "private"
   force_destroy = var.s3_force_destroy
   versioning {
     enabled = true
