@@ -3,6 +3,9 @@ resource "aws_s3_bucket" "spa-app-bkt" {
   bucket = var.spa-app-bkt
   acl    = "private"  
   force_destroy = var.s3_force_destroy
+  versioning {
+    enabled = true
+  }
   server_side_encryption_configuration {
     rule {
       apply_server_side_encryption_by_default {
@@ -16,6 +19,9 @@ resource "aws_s3_bucket" "static-data-bkt" {
   bucket = var.static-data-bkt
   acl    = "private"  
   force_destroy = var.s3_force_destroy
+  versioning {
+    enabled = true
+  }
   server_side_encryption_configuration {
     rule {
       apply_server_side_encryption_by_default {
